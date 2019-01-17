@@ -1,0 +1,47 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+
+<div id="app">
+	<ul>
+		<li v-for="ing in ingrediants">{{ ing }}</li>
+	</ul>
+	<br>
+		<ul>
+		<li v-for="(ing, i) in ingrediants" :key="ing">{{ ing }} ({{i}})</li>
+	</ul>
+	<br>
+	<template v-for="person in people">
+		<h3>{{person.name}}</h3>
+		<p>age: {{person.age}} coloe: {{person.color}}</p>
+	</template>
+	<br>
+	<template v-for="person in people">
+		<template v-for="(val, key, index) in person">
+			<ul>
+				<li>{{key}}: {{val}} ({{index}})</li>
+			</ul>
+		</template>
+		<br>
+		
+	</template>
+
+	<span v-for="n in 10">{{ n }}</span>
+
+
+	
+</div>
+
+<script type="text/javascript">
+	new Vue ({
+		el: "#app",
+		data: {
+			ingrediants: ['a', 'b', 'c', 'd'],
+					people: [
+			{name: 'Max', age: 27, color: 'red'},
+			{name: 'Bob', age: 27, color: 'blue'},
+			{name: 'Rob', age: 20, color: 'black'}
+		]
+		},
+
+	})
+</script>

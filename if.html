@@ -1,0 +1,23 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+<div id="app">
+	<button @click="on = !on">on/off</button>
+	<p v-if="on">on</p>
+	<p v-else>off</p>
+	<br>
+	<!-- v- -->
+	<button @click="show = !show">show/hide</button>
+	<p v-show="show">show</p>
+	<p v-show="!show">hide</p>
+
+</div>
+
+<script type="text/javascript">
+	new Vue ({
+		el: '#app',
+		data: {
+			 on: true,
+			 show: true
+		}
+	})
+</script>

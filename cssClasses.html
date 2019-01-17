@@ -1,0 +1,58 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+<style type="text/css">
+	.demo {
+		width: 100px;
+		height: 100px;
+		background-color: gray;
+		display: inline-block;
+		margin: 10px;
+	}
+	.red {
+		background-color: red;
+	}
+	.green {
+		background-color: green;
+	}
+	.blue {
+		background-color: blue;
+	}
+</style>
+
+<div id="app">
+	<div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+	<div class="demo" @click="attachGreen = !attachGreen" :class="{green: attachGreen}"></div>
+	<div class="demo" :class="color"></div>
+	<div class="demo" :style="{backgroundColor: color}"></div>
+	<div class="demo" :style="myStyle"></div>
+	<br>
+	<input type="text" v-model="color">
+	<input type="width" v-model="width">
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			attachRed: false,
+			attachGreen: false,
+			attachBlue: false,
+			color: 'blue',
+			width: 100
+		},
+		computed: {
+			divClasses: function() { // A nother way to set a class
+				return {
+					red: this.attachRed
+				}
+			},
+			myStyle: function() { //Costume stype
+				return {
+					backgroundColor: this.color,
+					width: this.width + 'px'
+				}
+			}
+		}
+		
+	})
+</script>
